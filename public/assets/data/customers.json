@@ -1,0 +1,49 @@
+[
+  {
+    "CustomerTypeId": 1,
+    "CustomterTypeName": "VIP",
+    "Customers": [
+      {
+        "Id": "Cus123",
+        "Name": "Nguyễn Văn A",
+        "Email": "nguyenvana@gmail.com",
+        "Age": 35,
+        "Image": "/assets/nguyenvana.jpeg"
+      },
+      {
+        "Id": "Cus456",
+        "Name": "Trần Thị B",
+        "Email": "tranthib@gmail.com",
+        "Age": 28,
+        "Image": "/assets/tranthib.avif"
+      },
+      {
+        "Id": "Cus789",
+        "Name": "Lê Văn C",
+        "Email": "levanc@gmail.com",
+        "Age": 42,
+        "Image": "/assets/levanc.jpg"
+      }
+    ]
+  },
+  {
+    "CustomerTypeId": 2,
+    "CustomterTypeName": "Normal",
+    "Customers": [
+      {
+        "Id": "Cus000",
+        "Name": "Phạm Minh D",
+        "Email": "phamminhd@gmail.com",
+        "Age": 22,
+        "Image": "/assets/phamminhd.jpeg"
+      },
+      {
+        "Id": "Cus111",
+        "Name": "Hoàng Anh E",
+        "Email": "hoanganhe@gmail.com",
+        "Age": 30,
+        "Image": "/assets/hoanganhe.jpg"
+      }
+    ]
+  }
+]

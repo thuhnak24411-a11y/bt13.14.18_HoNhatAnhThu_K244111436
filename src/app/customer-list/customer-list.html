@@ -1,0 +1,35 @@
+<h2>Danh sách Khách hàng theo Loại</h2>
+
+<div *ngIf="customerTypes?.length; else noData">
+  <div *ngFor="let type of customerTypes; trackBy: trackByType" style="margin-bottom: 30px; border: 1px solid #ddd; padding: 15px;">
+    <h3>Mã Loại: {{ type.CustomerTypeId }} - Tên Loại: {{ type.CustomterTypeName }}</h3>
+
+    <table border="1" width="100%" style="border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let cus of type?.Customers ?? []; trackBy: trackByCustomer">
+        <tr>
+          <td>{{ cus.Id }}</td>
+          <td>{{ cus.Name }}</td>
+          <td>{{ cus.Email }}</td>
+          <td>{{ cus.Age }}</td>
+          <td>
+            <img [src]="getImageUrl(cus)" width="50" height="50" alt="{{ cus.Name }}" style="object-fit: cover; border-radius: 4px;" (error)="onImageError($event)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #noData>
+  <p>Không có dữ liệu khách hàng.</p>
+</ng-template>
