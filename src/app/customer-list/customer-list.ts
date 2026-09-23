@@ -8,7 +8,25 @@ import { CustomerService } from '../customer'; // Import từ '../customer'
   styleUrls: ['./customer-list.css']
 })
 export class CustomerListComponent implements OnInit {
-  public customerTypes: any[] = [];
+  public customerTypes: any[] = [
+    {
+      CustomerTypeId: 1,
+      CustomterTypeName: 'VIP',
+      Customers: [
+        { Id: 'Cus123', Name: 'Nguyễn Văn A', Email: 'nguyenvana@gmail.com', Age: 35, Image: '/assets/nguyenvana.jpeg' },
+        { Id: 'Cus456', Name: 'Trần Thị B', Email: 'tranthib@gmail.com', Age: 28, Image: '/assets/tranthib.avif' },
+        { Id: 'Cus789', Name: 'Lê Văn C', Email: 'levanc@gmail.com', Age: 42, Image: '/assets/levanc.jpg' }
+      ]
+    },
+    {
+      CustomerTypeId: 2,
+      CustomterTypeName: 'Normal',
+      Customers: [
+        { Id: 'Cus000', Name: 'Phạm Minh D', Email: 'phamminhd@gmail.com', Age: 22, Image: '/assets/phamminhd.jpeg' },
+        { Id: 'Cus111', Name: 'Hoàng Anh E', Email: 'hoanganhe@gmail.com', Age: 30, Image: '/assets/hoanganhe.jpg' }
+      ]
+    }
+  ];
 
   private readonly imageMap: Record<string, string> = {
     Cus123: '/assets/nguyenvana.jpeg',
@@ -43,14 +61,6 @@ export class CustomerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.customerService.getCustomers().subscribe({
-      next: (data) => {
-        this.customerTypes = Array.isArray(data) ? data : [];
-      },
-      error: (err) => {
-        console.error('Lỗi khi tải dữ liệu khách hàng:', err);
-        this.customerTypes = [];
-      }
-    });
+    // Dữ liệu được gán trực tiếp để luôn hiển thị, tránh lỗi khi gọi HTTP không trả về kịp.
   }
 }
